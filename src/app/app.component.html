@@ -1,0 +1,30 @@
+<div class="container-fuild principal">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">{{ title }}</a>
+        <a class="navbar-brand">{{ time }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/albums" routerLinkActive="active">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active">Se connecter
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- place de l'audio player déclenché depuis le component AlbumDetailsComponent -->
+    <app-audio-player></app-audio-player>
+    <div class="row content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

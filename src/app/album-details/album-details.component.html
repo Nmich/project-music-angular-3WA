@@ -1,0 +1,14 @@
+<div [@details]="isOpen? 'open' : 'opening'" class="card-details card-scroll" *ngIf="album">
+    {{title || 'no title'}}
+    <img *ngIf="album.url" class="card-img-top" src="{{album.url}}" alt="Group Music">
+    <div class="card-body">
+        <h5 class="card-title">{{ album.title }}</h5>
+        <p class="card-text">Name: {{ album.name }}</p>
+        <button [disabled]="!isActive" (click)="play(album)" class="btn btn-primary">Play >> </button>
+        <button *ngIf="!isActive" [disabled]="isActive" (click)="stop(album)" class="btn btn-primary stop">stop </button>
+    </div>
+    <ul class="list-group" *ngIf="songs">
+        <h2>Playlist <small>{{songs.length}} chansons</small></h2>
+        <li *ngFor="let song of songs" class="list-group-item">{{song}}</li>
+    </ul>
+</div>
