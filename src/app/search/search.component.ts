@@ -22,11 +22,12 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const albums = this.aS.search(form.value['word']);
-    if (albums) {
-      this.searchAlbums.emit(albums);
-      this.isSumit = true;
-    }
+    this.aS.search(form.value['word']).subscribe(albums => {
+      if (albums.length > 0) {
+        this.searchAlbums.emit(albums);
+        this.isSumit = true;
+      }
+    });
   }
 
   onChangeEmit($event :string) {

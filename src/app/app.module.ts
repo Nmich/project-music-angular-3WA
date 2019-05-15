@@ -13,6 +13,8 @@ import { AlbumDescriptionComponent } from './album-description/album-description
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PaginateComponent } from './paginate/paginate.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AudioPlayerComponent } from './audio-player/audio-player.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule // module HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

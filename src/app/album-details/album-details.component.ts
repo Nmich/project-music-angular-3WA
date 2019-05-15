@@ -66,9 +66,7 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
     this.onPlay.emit(album); // émettre un album vers le parent
   }
 
-  stop(album : Album){
-    this.aS.stop(album);
-  }
+  stop(album : Album){ }
 
   toggle() {
     this.isOpen = false;

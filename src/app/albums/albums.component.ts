@@ -16,6 +16,9 @@ export class AlbumsComponent implements OnInit {
   albums: Album[] = [];
   count: number;
   isSearch: boolean = false;
+  titlePage: string = "Page princiaple Albums Music";
+  status: string = null;
+  perPage : number = 5;
 
   position = Position; // comme valeurs positions
 
@@ -26,12 +29,13 @@ export class AlbumsComponent implements OnInit {
   constructor(private aS: AlbumService) {
     //console.log('constructor AlbumsComponent');
     //console.log(this.aS.paginate(0, 2));
+    // console.log(this.ablumService.getAlbums().subscribe(albums => console.log(albums)))  
   }
 
   ngOnInit() {
     // vous pouvez passer en paramètre une fonction flèchée pour sort définie dans le service
     this.count = this.aS.count();
-    this.albums = this.aS.paginate(0, environment.perPage);
+    this.aS.paginate(0, environment.perPage).subscribe( albums => this.albums = albums);
   }
 
   ngOnChanges() {
@@ -57,14 +61,18 @@ export class AlbumsComponent implements OnInit {
     this.isSearch = false;
 
     if ($event) {
-      this.albums = this.aS.paginate(0, environment.perPage);
+      this.aS.paginate(0, environment.perPage).subscribe(
+         albums => this.albums = albums
+      );
     }
   }
 
   paginateParent($event: { start: number, end: number }) {
 
     const { start, end } = $event;
-    this.albums = this.aS.paginate(start, end);
+    this.aS.paginate(start, end).subscribe(
+       albums => this.albums = albums
+    );
   }
 
 }
